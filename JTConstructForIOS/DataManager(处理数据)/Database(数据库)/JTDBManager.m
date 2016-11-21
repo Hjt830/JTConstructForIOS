@@ -48,7 +48,7 @@ static JTDBManager *manager = nil;
 /**   
  *  method:创建数据库
  */
-- (void)setupDatabasecomplection:(void(^ _Nullable)(BOOL status, NSError * _Nullable error))complection {
+- (void)setupDatabasecomplection:(void(^ _Nullable)(BOOL result, NSError * _Nullable error))complection {
     // 先查看目录下是否存在同名的表, 若存在就返回
     NSString *path = [self databasePath];
     
@@ -73,8 +73,8 @@ static JTDBManager *manager = nil;
  *  method:建表
  */
 - (void)setupTableName:(nonnull NSString *)name
-             information:(nonnull NSString *)information
-             complection:(void(^ _Nullable)(BOOL status, NSError * _Nullable error))complection {
+           information:(nonnull NSString *)information
+           complection:(void(^ _Nullable)(BOOL result, NSError * _Nullable error))complection {
     
     [self.DBQueue inDatabase:^(FMDatabase *db) {
         
@@ -113,5 +113,19 @@ static JTDBManager *manager = nil;
     }];
 }
 
+/**   
+ *  method:删除
+ */
+- (void)deleteDataWithName:(nonnull NSString *)name
+                   keyword:(nullable NSString *)keyword
+                 condition:(nullable NSString *)condition
+               complection:(void(^ _Nullable)(BOOL result))complection {
+    
+    [self.DBQueue inDatabase:^(FMDatabase *db) {
+
+        BOOL res = [db executeUpdate:[NSString stringWithFormat:@"DELETE * FROM %@ WHERE %@%@", name, keyword, condition]];
+        complection(res);
+    }];
+}
 
 @end

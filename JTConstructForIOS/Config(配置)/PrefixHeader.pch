@@ -1,0 +1,34 @@
+//
+//  PrefixHeader.pch
+//  JTConstructForIOS
+//
+//  Created by Hjt on 16/11/21.
+//  Copyright © 2016年 ShenZhenHermallUnion.Ltd. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+
+#ifdef __OBJC__
+
+// 预编译 第三方库
+#import "AFNetworking.h"
+#import "MJExtension.h"
+#import "UIImageView+WebCache.h"
+#import "SDImageCache.h"
+#import "FMDB.h"
+
+// 预编译 项目配置
+#import "configuration.h"
+
+// 预编译 类扩展
+#import "NSString+Md5.h"
+#import "NSString+TimeStamp.h"
+#import "UIView+Size.h"
+
+#endif
+
+
+
+#endif /* PrefixHeader_pch */

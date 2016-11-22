@@ -41,7 +41,7 @@ static JTDBManager *manager = nil;
  */
 - (NSString *)databasePath {
     NSString *url = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *path = [url stringByAppendingPathComponent:@"Caches/history/search.db"];
+    NSString *path = [url stringByAppendingPathComponent:@"Caches/history"];
     return path;
 }
 
@@ -55,17 +55,18 @@ static JTDBManager *manager = nil;
     // 若没有路径 就创建该路径
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if (![fileManager fileExistsAtPath:path]) {
-        [fileManager createDirectoryAtPath:[NSString stringWithFormat:@"%@/%@",path,@"Caches/history/"] withIntermediateDirectories:YES attributes:nil error:nil];
+        [fileManager createDirectoryAtPath:[NSString stringWithFormat:@"%@/%@",path,@"Caches/history"] withIntermediateDirectories:YES attributes:nil error:nil];
     }
     
     // 获取或者创建数据库
-    self.DBQueue = [FMDatabaseQueue databaseQueueWithPath:[self databasePath]];
+    self.DBQueue = [FMDatabaseQueue databaseQueueWithPath:[[self databasePath] stringByAppendingPathComponent:@"main.sqlite"]];
     if (!self.DBQueue) {
         NSError *error = [NSError errorWithDomain:@"创建数据库失败" code:0 userInfo:nil];
         complection (NO, error);
     }
     else {
         complection (YES, nil);
+        JTLOG(@"创建数据库成功");
     }
 }
 
@@ -82,12 +83,13 @@ static JTDBManager *manager = nil;
             NSError *error = [NSError errorWithDomain:@"表已经存在" code:0 userInfo:nil];
             complection (NO, error);
         }
-        else {
-            NSString *sql = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS '%@' (searchText text)", name];
-            
+        else {  
+            NSString *sql = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS '%@' %@;", name, information];
+
             BOOL res = [db executeStatements:sql];
             if (res) {
                 complection (YES, nil);
+                JTLOG(@"建表成功");
             }
             else {
                 NSError *error = [NSError errorWithDomain:@"建表失败" code:0 userInfo:nil];
@@ -97,9 +99,9 @@ static JTDBManager *manager = nil;
     }];
 }
 
-/**   
+/***
  *  method:查询
- */
+ **/
 - (void)selectTableWithName:(nonnull NSString *)name
                     keyword:(nullable NSString *)keyword
                   condition:(nullable NSString *)condition
@@ -113,9 +115,9 @@ static JTDBManager *manager = nil;
     }];
 }
 
-/**   
+/***
  *  method:删除
- */
+ **/
 - (void)deleteDataWithName:(nonnull NSString *)name
                    keyword:(nullable NSString *)keyword
                  condition:(nullable NSString *)condition
@@ -123,9 +125,24 @@ static JTDBManager *manager = nil;
     
     [self.DBQueue inDatabase:^(FMDatabase *db) {
 
-        BOOL res = [db executeUpdate:[NSString stringWithFormat:@"DELETE * FROM %@ WHERE %@%@", name, keyword, condition]];
-        complection(res);
+        BOOL result = [db executeUpdate:[NSString stringWithFormat:@"DELETE * FROM %@ WHERE %@%@", name, keyword, condition]];
+        complection(result);
     }];
+}
+
+/***
+ *  method:插入
+ **/
+- (void)insertDataWithName:(nonnull NSString *)name
+                 condition:(nonnull NSString *)condition
+               complection:(void(^ _Nullable)(BOOL result))complection {
+    
+    [self.DBQueue inDatabase:^(FMDatabase *db) {
+                                                        
+        BOOL result = [db executeUpdate:[NSString stringWithFormat:@"INSERT INTO %@ %@", name, condition]];
+        complection (result);
+    }];
+
 }
 
 @end

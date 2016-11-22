@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "JTDBManager.h"
 
 @interface AppDelegate ()
 
@@ -17,7 +18,29 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    
+    [self initDatabase];
+    
     return YES;
+}
+
+- (void)initDatabase {
+    
+    JTDBManager *manager = [JTDBManager defaultManager];
+    
+    // 创建数据库
+    [manager setupDatabasecomplection:^(BOOL result, NSError * _Nullable error) {
+        if (!result) {
+            JTLOG(@"error = %@", error);
+        }
+    }];
+    // 创建表  
+    [manager setupTableName:@"t_main" information:@"('name' text PRIMARY KEY, 'enName' text, 'brandName' text, 'picUrl' text, 'specInfo' text, 'productId' integer, 'price' text)" complection:^(BOOL result, NSError * _Nullable error) {
+        if (!result) {
+            JTLOG(@"error = %@", error);
+        }
+    }];
 }
 
 

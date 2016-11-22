@@ -18,6 +18,7 @@
 #import "UIImageView+WebCache.h"
 #import "SDImageCache.h"
 #import "FMDB.h"
+#import "SVProgressHUD.h"
 
 // 预编译 项目配置
 #import "configuration.h"

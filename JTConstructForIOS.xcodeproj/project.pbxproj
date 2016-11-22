@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		079C92601C3758D3751D4F7D /* libPods-JTConstructForIOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCCBF0585C5190ACA0C9200D /* libPods-JTConstructForIOS.a */; };
+		6A2443171DE42F7A004B99D2 /* JTMainViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2443161DE42F7A004B99D2 /* JTMainViewModel.m */; };
+		6A24431A1DE430E8004B99D2 /* JTMainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2443191DE430E8004B99D2 /* JTMainModel.m */; };
+		6A2443211DE4325C004B99D2 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2443201DE4325C004B99D2 /* MainViewController.m */; };
+		6A2443241DE4326A004B99D2 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2443231DE4326A004B99D2 /* MessageViewController.m */; };
+		6A2443271DE4327A004B99D2 /* DisCoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2443261DE4327A004B99D2 /* DisCoverViewController.m */; };
+		6A24432A1DE43289004B99D2 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2443291DE43289004B99D2 /* SettingViewController.m */; };
 		6A392D4E1DE2C3B7005B18EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A392D4D1DE2C3B7005B18EC /* main.m */; };
 		6A392D511DE2C3B7005B18EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A392D501DE2C3B7005B18EC /* AppDelegate.m */; };
 		6A392D571DE2C3B7005B18EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A392D551DE2C3B7005B18EC /* Main.storyboard */; };
@@ -45,6 +51,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6A2443151DE42F7A004B99D2 /* JTMainViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTMainViewModel.h; sourceTree = "<group>"; };
+		6A2443161DE42F7A004B99D2 /* JTMainViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTMainViewModel.m; sourceTree = "<group>"; };
+		6A2443181DE430E8004B99D2 /* JTMainModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTMainModel.h; sourceTree = "<group>"; };
+		6A2443191DE430E8004B99D2 /* JTMainModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTMainModel.m; sourceTree = "<group>"; };
+		6A24431F1DE4325C004B99D2 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		6A2443201DE4325C004B99D2 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		6A2443221DE4326A004B99D2 /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
+		6A2443231DE4326A004B99D2 /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
+		6A2443251DE4327A004B99D2 /* DisCoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisCoverViewController.h; sourceTree = "<group>"; };
+		6A2443261DE4327A004B99D2 /* DisCoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisCoverViewController.m; sourceTree = "<group>"; };
+		6A2443281DE43289004B99D2 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		6A2443291DE43289004B99D2 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		6A392D491DE2C3B7005B18EC /* JTConstructForIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JTConstructForIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A392D4D1DE2C3B7005B18EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6A392D4F1DE2C3B7005B18EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -118,6 +136,42 @@
 				BCCBF0585C5190ACA0C9200D /* libPods-JTConstructForIOS.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6A24431B1DE43239004B99D2 /* 发现 */ = {
+			isa = PBXGroup;
+			children = (
+				6A2443251DE4327A004B99D2 /* DisCoverViewController.h */,
+				6A2443261DE4327A004B99D2 /* DisCoverViewController.m */,
+			);
+			path = "发现";
+			sourceTree = "<group>";
+		};
+		6A24431C1DE43239004B99D2 /* 设置 */ = {
+			isa = PBXGroup;
+			children = (
+				6A2443281DE43289004B99D2 /* SettingViewController.h */,
+				6A2443291DE43289004B99D2 /* SettingViewController.m */,
+			);
+			path = "设置";
+			sourceTree = "<group>";
+		};
+		6A24431D1DE43239004B99D2 /* 首页 */ = {
+			isa = PBXGroup;
+			children = (
+				6A24431F1DE4325C004B99D2 /* MainViewController.h */,
+				6A2443201DE4325C004B99D2 /* MainViewController.m */,
+			);
+			path = "首页";
+			sourceTree = "<group>";
+		};
+		6A24431E1DE43239004B99D2 /* 消息 */ = {
+			isa = PBXGroup;
+			children = (
+				6A2443221DE4326A004B99D2 /* MessageViewController.h */,
+				6A2443231DE4326A004B99D2 /* MessageViewController.m */,
+			);
+			path = "消息";
 			sourceTree = "<group>";
 		};
 		6A392D401DE2C3B7005B18EC = {
@@ -207,6 +261,8 @@
 		6A392D811DE2C47D005B18EC /* Models(模型) */ = {
 			isa = PBXGroup;
 			children = (
+				6A2443181DE430E8004B99D2 /* JTMainModel.h */,
+				6A2443191DE430E8004B99D2 /* JTMainModel.m */,
 			);
 			path = "Models(模型)";
 			sourceTree = "<group>";
@@ -230,6 +286,10 @@
 			children = (
 				6A392D981DE2CB97005B18EC /* TabBar\Nav */,
 				6A392D931DE2CB51005B18EC /* 父控制器 */,
+				6A24431D1DE43239004B99D2 /* 首页 */,
+				6A24431E1DE43239004B99D2 /* 消息 */,
+				6A24431B1DE43239004B99D2 /* 发现 */,
+				6A24431C1DE43239004B99D2 /* 设置 */,
 			);
 			path = "ViewControllers(控制器)";
 			sourceTree = "<group>";
@@ -239,6 +299,8 @@
 			children = (
 				6A392DA81DE2EC73005B18EC /* JTViewModels.h */,
 				6A392DA91DE2EC73005B18EC /* JTViewModels.m */,
+				6A2443151DE42F7A004B99D2 /* JTMainViewModel.h */,
+				6A2443161DE42F7A004B99D2 /* JTMainViewModel.m */,
 			);
 			path = "ViewModels(处理逻辑)";
 			sourceTree = "<group>";
@@ -509,12 +571,18 @@
 				6A392D9B1DE2CBB4005B18EC /* JTNavigationController.m in Sources */,
 				6A392DB61DE2EF40005B18EC /* JTDBManager.m in Sources */,
 				6A392D9E1DE2CBCC005B18EC /* JTTabBarController.m in Sources */,
+				6A24432A1DE43289004B99D2 /* SettingViewController.m in Sources */,
 				6A392DB21DE2EE75005B18EC /* NSString+TimeStamp.m in Sources */,
+				6A2443241DE4326A004B99D2 /* MessageViewController.m in Sources */,
+				6A24431A1DE430E8004B99D2 /* JTMainModel.m in Sources */,
 				6A392DAA1DE2EC73005B18EC /* JTViewModels.m in Sources */,
 				6A392DB11DE2EE75005B18EC /* NSString+Md5.m in Sources */,
 				6A392D511DE2C3B7005B18EC /* AppDelegate.m in Sources */,
+				6A2443171DE42F7A004B99D2 /* JTMainViewModel.m in Sources */,
+				6A2443271DE4327A004B99D2 /* DisCoverViewController.m in Sources */,
 				6A392D4E1DE2C3B7005B18EC /* main.m in Sources */,
 				6A392DB31DE2EE75005B18EC /* UIView+Size.m in Sources */,
+				6A2443211DE4325C004B99D2 /* MainViewController.m in Sources */,
 				6A392DA11DE2CFC8005B18EC /* JTTabBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

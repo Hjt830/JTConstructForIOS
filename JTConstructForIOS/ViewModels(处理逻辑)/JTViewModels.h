@@ -26,8 +26,8 @@ typedef void(^NoNetwork)(BOOL status);
  *  noNetworkComplection:没有网络的回调
  */
 - (void)requestDataSourceWithSuccess:(_Nullable NetworkSuccess)successComplection
-                            fail:(_Nullable NetworkFail)failCompletion
-                       noNetwork:(_Nullable NoNetwork)noNetworkComplection;
+                                fail:(_Nullable NetworkFail)failCompletion
+                           noNetwork:(_Nullable NoNetwork)noNetworkComplection;
 
 /** method:查询本地数据库数据
  *  name:表名

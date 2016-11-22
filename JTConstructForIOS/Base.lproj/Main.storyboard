@@ -6,10 +6,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--消息-->
         <scene sceneID="GBm-P2-14V">
             <objects>
-                <viewController id="K4o-7G-Hql" sceneMemberID="viewController">
+                <viewController id="K4o-7G-Hql" customClass="MessageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fHH-TJ-UXE"/>
                         <viewControllerLayoutGuide type="bottom" id="SQj-Wi-8Ny"/>
@@ -19,16 +19,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="mgv-Bg-dxV"/>
+                    <tabBarItem key="tabBarItem" title="消息" id="mgv-Bg-dxV"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dvf-SB-P8q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-353" y="570"/>
         </scene>
-        <!--Item 3-->
+        <!--发现-->
         <scene sceneID="GP7-fc-0Ke">
             <objects>
-                <viewController id="Udc-nI-Odc" sceneMemberID="viewController">
+                <viewController id="Udc-nI-Odc" customClass="DisCoverViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Iyp-TS-emr"/>
                         <viewControllerLayoutGuide type="bottom" id="uEt-ZL-Bow"/>
@@ -38,16 +38,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 3" id="Y9c-V5-6X9"/>
+                    <tabBarItem key="tabBarItem" title="发现" id="Y9c-V5-6X9"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eRN-fa-Psw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1018" y="570"/>
         </scene>
-        <!--Item 4-->
+        <!--设置-->
         <scene sceneID="gru-Ai-UvF">
             <objects>
-                <viewController id="Usb-lM-gAJ" sceneMemberID="viewController">
+                <viewController id="Usb-lM-gAJ" customClass="SettingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5hy-RP-SYT"/>
                         <viewControllerLayoutGuide type="bottom" id="fF9-MV-qOI"/>
@@ -57,16 +57,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 4" id="r5p-0O-b0A"/>
+                    <tabBarItem key="tabBarItem" title="设置" id="r5p-0O-b0A"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rYW-Aa-A0e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1673" y="570"/>
         </scene>
-        <!--Item 1-->
+        <!--首页-->
         <scene sceneID="ieJ-Xz-Sat">
             <objects>
-                <viewController id="kNp-dl-l4X" sceneMemberID="viewController">
+                <viewController id="kNp-dl-l4X" customClass="MainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5UQ-Zf-j6u"/>
                         <viewControllerLayoutGuide type="bottom" id="QzB-JT-xRs"/>
@@ -76,7 +76,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="Qqx-qT-5ux"/>
+                    <tabBarItem key="tabBarItem" title="首页" id="Qqx-qT-5ux"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UDJ-0F-jax" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -105,6 +105,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="DC4-GN-vhW"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="SRy-bL-cJH">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>

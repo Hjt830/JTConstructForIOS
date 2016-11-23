@@ -23,7 +23,7 @@
     
     [self setup];
     
-    [self getDataSource];
+    [self getDataFormNetwork];
 }
 
 - (void)setup {
@@ -35,7 +35,7 @@
     }
 }
 
-- (void)getDataSource {
+- (void)getDataFormNetwork {
     // 从网络加载数据
     JTMainViewModel *mainViewModel = [[JTMainViewModel alloc] init];
     mainViewModel.URL = @"http://apijewelry.hermall.com/app/home/findProductList";
@@ -55,12 +55,45 @@
         
         [SVProgressHUD dismiss];
         JTLOG(@"error = %@", error);
+        [self getDataFormDatabase];
     } noNetwork:^(BOOL status) {
         if (!status) {
             [SVProgressHUD showErrorWithStatus:@"网络错误"];
+            [self getDataFormDatabase];
         }
     }];
 }
+
+- (void)getDataFormDatabase {
+    JTDBManager *manager = [JTDBManager defaultManager];
+    
+    [manager selectTableWithName:@"t_main" keyword:@"*" condition:@"" complection:^(FMResultSet * _Nullable result, NSError * _Nullable error) {
+        if (!error) {
+            NSMutableArray *array = [NSMutableArray arrayWithCapacity:0];
+            while ([result next]) {
+                JTMainModel *model = [[JTMainModel alloc] init];
+                model.name = [result stringForColumn:@"name"];
+                model.enName = [result stringForColumn:@"enName"];
+                model.brandName = [result stringForColumn:@"brandName"];
+                model.picUrl = [result stringForColumn:@"picUrl"];
+                model.specInfo = [result stringForColumn:@"specInfo"];
+                model.price = [result stringForColumn:@"price"];
+                model.productId = [result intForColumn:@"productId"];
+                [array addObject:model];
+            }
+            if (array.count > 0) {
+                self.dataSource = array;
+                [self.tableView reloadData];
+            } else {
+                JTLOG(@"数据库没有数据");
+            }
+        }
+        else {
+            JTLOG(@"查询失败");
+        }
+    }];
+}
+
 // 保存到数据库
 - (void)saveToDatabase:(NSArray <JTMainModel *> *)list {
     JTDBManager *manager = [JTDBManager defaultManager];

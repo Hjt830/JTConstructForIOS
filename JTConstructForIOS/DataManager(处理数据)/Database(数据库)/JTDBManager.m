@@ -108,10 +108,13 @@ static JTDBManager *manager = nil;
                 complection:(void(^ _Nullable)(FMResultSet  * _Nullable result ,NSError * _Nullable error))complection {
 
     [self.DBQueue inDatabase:^(FMDatabase *db) {
-        
-        FMResultSet *set = [db executeQuery:[NSString stringWithFormat:@"SELECT * FROM %@ WHERE %@%@", name, keyword, condition]];
-       
-        complection (set, nil);
+        if (condition) {
+            FMResultSet *set = [db executeQuery:[NSString stringWithFormat:@"SELECT %@ FROM %@ WHERE %@", keyword, name, condition]];
+            complection (set, nil);
+        } else {
+            FMResultSet *set = [db executeQuery:[NSString stringWithFormat:@"SELECT %@ FROM %@", keyword, name]];
+            complection (set, nil);
+        }
     }];
 }
 
@@ -143,6 +146,21 @@ static JTDBManager *manager = nil;
         complection (result);
     }];
 
+}
+
+/***
+ *  method:更新
+ **/
+- (void)updateDataWithName:(nonnull NSString *)name
+                 condition:(nonnull NSString *)condition
+               complection:(void(^ _Nullable)(BOOL result))complection {
+    
+    [self.DBQueue inDatabase:^(FMDatabase *db) {
+        //  [NSString stringWithFormat:@"update Student set name = '%@' where id = %d", aName, aID];
+        BOOL result = [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ %@", name, condition]];
+        complection (result);
+    }];
+    
 }
 
 @end

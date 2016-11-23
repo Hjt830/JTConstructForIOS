@@ -68,4 +68,14 @@
                  condition:(nonnull NSString *)condition
                complection:(void(^ _Nullable)(BOOL result))complection;
 
+/***
+ *  method:更新方法
+ *  name:表名
+ *  condition: 修改的语句
+ *  result: 操作结果 YES/NO
+ **/
+- (void)updateDataWithName:(nonnull NSString *)name
+                 condition:(nonnull NSString *)condition
+               complection:(void(^ _Nullable)(BOOL result))complection;
+
 @end

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "JTViewModels.h"
 #import "JTMainModel.h"
+#import "JTDBManager.h"
 
 @interface JTMainViewModel : JTViewModels
 

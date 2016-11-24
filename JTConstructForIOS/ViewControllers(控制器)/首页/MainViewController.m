@@ -64,23 +64,13 @@
     }];
 }
 
+// 从数据库加载数据
 - (void)getDataFormDatabase {
-    JTDBManager *manager = [JTDBManager defaultManager];
+    JTMainViewModel *mainViewModel = [[JTMainViewModel alloc] init];
     
-    [manager selectTableWithName:@"t_main" keyword:@"*" condition:@"" complection:^(FMResultSet * _Nullable result, NSError * _Nullable error) {
+    [mainViewModel getDatabaseWithName:@"t_main" keyword:@"*" condition:@"" complection:^(id _Nullable responesObject, NSError * _Nullable error) {
         if (!error) {
-            NSMutableArray *array = [NSMutableArray arrayWithCapacity:0];
-            while ([result next]) {
-                JTMainModel *model = [[JTMainModel alloc] init];
-                model.name = [result stringForColumn:@"name"];
-                model.enName = [result stringForColumn:@"enName"];
-                model.brandName = [result stringForColumn:@"brandName"];
-                model.picUrl = [result stringForColumn:@"picUrl"];
-                model.specInfo = [result stringForColumn:@"specInfo"];
-                model.price = [result stringForColumn:@"price"];
-                model.productId = [result intForColumn:@"productId"];
-                [array addObject:model];
-            }
+            NSArray *array = (NSArray *)responesObject;
             if (array.count > 0) {
                 self.dataSource = array;
                 [self.tableView reloadData];

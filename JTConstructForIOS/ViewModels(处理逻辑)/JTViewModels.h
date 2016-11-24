@@ -35,9 +35,10 @@ typedef void(^NoNetwork)(BOOL status);
  *  complection:查询回调
  *  responesObject:查询成功的数据(在这里将数据序列化处理) error:查询失败或者错误
  */
-- (void)getDatabaseWithName:(nonnull NSString *)name
-                    keyword:(nullable NSString *)keyword
-                complection:(void(^ _Nullable)(id _Nullable responesObject, NSError * _Nullable error))complection;
+- (void)getDatabaseWithName:(NSString * _Nonnull)name
+                    keyword:(NSString * _Nullable)keyword
+                  condition:(NSString * _Nullable)condition
+                complection:(void (^ _Nullable)(id _Nullable, NSError * _Nullable))complection;
 
 
 @end
